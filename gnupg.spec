@@ -1,11 +1,11 @@
 Summary:	GNU Privacy Guard - secure communication and data storage
 Name:		gnupg
-Version:	1.4.12
+Version:	1.4.13
 Release:	1
 License:	GPL v3+
 Group:		Applications/File
 Source0:	ftp://ftp.gnupg.org/GnuPG/gnupg/%{name}-%{version}.tar.bz2
-# Source0-md5:	ce3742e5c7912559cab7894ad8ba7f6b
+# Source0-md5:	c74249db5803f76f17fee9a201c0189f
 URL:		http://www.gnupg.org/
 BuildRequires:	automake
 BuildRequires:	bzip2-devel
@@ -58,14 +58,6 @@ Requires:	%{name} = %{version}-%{release}
 %description plugin-keys-ldap
 GnuPG plugin for allow talk to a LDAP keyserver.
 
-%package plugin-keys-mailto
-Summary:	GnuPG plugin for allow talk to a email keyserver
-Group:		Applications/File
-Requires:	%{name} = %{version}-%{release}
-
-%description plugin-keys-mailto
-GnuPG plugin for allow talk to a email keyserver.
-
 %prep
 %setup -q
 
@@ -73,9 +65,7 @@ GnuPG plugin for allow talk to a email keyserver.
 cp -f /usr/share/automake/config.sub scripts
 %configure \
 	--enable-ldap		\
-	--enable-mailto		\
 	--with-capabilities	\
-	--with-mailprog=/usr/sbin/sendmail	\
 	--without-included-gettext
 %{__make}
 
@@ -133,8 +123,4 @@ rm -rf $RPM_BUILD_ROOT
 %files plugin-keys-ldap
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libexecdir}/gnupg/gpgkeys_ldap
-
-%files plugin-keys-mailto
-%defattr(644,root,root,755)
-%attr(755,root,root) %{_libexecdir}/gnupg/gpgkeys_mailto
 
