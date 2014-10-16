@@ -1,7 +1,7 @@
 Summary:	GNU Privacy Guard - secure communication and data storage
 Name:		gnupg
 Version:	1.4.16
-Release:	1
+Release:	2
 License:	GPL v3+
 Group:		Applications/File
 Source0:	ftp://ftp.gnupg.org/GnuPG/gnupg/%{name}-%{version}.tar.bz2
